@@ -1,8 +1,7 @@
 import Head from 'next/head'
-
 import Post from '../components/Post'
 import PostForm from '../components/PostForm/PostForm'
-
+import Bio from '../components/Bio/Bio'
 import styles from '../styles/Home.module.scss'
 
 export default function Home() {
@@ -15,9 +14,12 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-            My Posts App!
-        </h1>
+        <Bio
+        headshot="https://i.imgur.com/j3Fs3w9.jpg"
+        name="Miguel Angel Carrizo"
+        role="Desarrollador React | Next JS"
+        tagline="Anotaciones"
+        />
 
         <ul className={styles.posts}>
           <li>
