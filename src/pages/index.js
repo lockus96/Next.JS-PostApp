@@ -1,5 +1,8 @@
 import Head from 'next/head'
-import Image from 'next/image'
+
+import Post from '../components/Post'
+import PostForm from '../components/PostForm/PostForm'
+
 import styles from '../styles/Home.module.scss'
 
 export default function Home() {
@@ -18,35 +21,27 @@ export default function Home() {
 
         <ul className={styles.posts}>
           <li>
-            <p className={styles.postsContenido}>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ev
-            </p>
-            <p className={styles.postsFecha}>
-              9/12/2018
-            </p>
+            <Post 
+            content="algo" 
+            date="12/12/12"/>
+            
           </li>
           <li>
-            <p className={styles.postsContenido}>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ev
-            </p>
-            <p className={styles.postsFecha}>
-              9/12/2018
-            </p>
+            <Post   
+            content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ev" 
+            date="9/12/2018"
+            />
           </li>
           <li>
-            <p className={styles.postsContenido}>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ev
-            </p>
-            <p className={styles.postsFecha}>
-              9/12/2018
-            </p>
+            <Post   
+            content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ev" 
+            date="9/12/2028"
+            />
+              
           </li>
         </ul>
 
-        <form>
-          <textarea className={styles.formContenido}></textarea> 
-          <button className={styles.formBoton}> Agregar Post</button>
-        </form>
+        <PostForm/>
 
 
       </main>

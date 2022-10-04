@@ -1,0 +1,28 @@
+
+
+.postsContenido{
+     font-weight: 400;
+     font-size: 1.5em;
+     line-height: 43px;
+     margin-bottom: 0.2em;
+}
+
+.postsMeta{
+     display: flex;
+     align-items: center;
+     list-style: none;
+     padding: 0; 
+}
+
+.postsMetaData{
+     display: flex;
+     align-items: center;
+     font-weight: 500;
+     font-size: 1.1em;
+     margin-top: 0.4em;
+     margin-right: 1em;
+     svg {
+          font-size: .85em;
+          margin-right: .3em;
+     }
+}
