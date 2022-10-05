@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { init } from "../lib/auth.js";
+import { init, auth, logIn as authLogIn, logOut as authLogOut} from "../lib/auth.js";
 export const AuthContext = createContext()
 
 export const AuthProvider = ({ children }) => {
@@ -7,11 +7,32 @@ export const AuthProvider = ({ children }) => {
      useEffect(()=> {
           init((user) =>{
                setUser(user)
-          })     
+          })  
+          
+          auth.on('login',  setUser)
+          
+
+          return () =>{
+               auth.off('login', setUser)
+          }
      }, [])
 
+     function logIn(){
+          authLogIn((user) =>{
+               setUser(user)
+          })
+     }
+
+     function logOut(){
+          authLogOut(() =>{
+               setUser(undefined)
+          })
+     }
+
      const contextValue = {
-          user
+          user,
+          logIn,
+          logOut
      }
 
      return (
