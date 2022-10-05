@@ -1,3 +1,4 @@
+import { useAuth } from '../hooks/useAuth'
 import Head from 'next/head'
 import Post from '../components/Post'
 import PostForm from '../components/PostForm/PostForm'
@@ -5,6 +6,12 @@ import Bio from '../components/Bio/Bio'
 import styles from '../styles/Home.module.scss'
 
 export default function Home() {
+
+  const auth = useAuth()
+  console.log('auth', auth)
+
+
+
   return (
     <div className={styles.container}>
       <Head>
