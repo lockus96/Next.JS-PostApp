@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { useAuth } from '../hooks/useAuth'
 import Head from 'next/head'
 import Post from '../components/Post'
@@ -5,13 +6,23 @@ import PostForm from '../components/PostForm/PostForm'
 import Bio from '../components/Bio/Bio'
 import styles from '../styles/Home.module.scss'
 
-export default function Home() {
+export default function Home({ posts: defaultPosts }) {
+
 
   const { user, logIn, logOut } = useAuth()
-  console.log('user', user)
 
+  const [posts, updatePosts] = useState(defaultPosts)  
 
+  useEffect(()=>{
+    async function run(){
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/posts`)
+      const { posts } = await response.json()
+      updatePosts(posts)
+    }
+    run()
+  }, [])
 
+  
   return (
     <div className={styles.container}>
       <Head>
@@ -41,25 +52,20 @@ export default function Home() {
         />
 
         <ul className={styles.posts}>
-          <li>
-            <Post 
-            content="algo" 
-            date="12/12/12"/>
-            
-          </li>
-          <li>
-            <Post   
-            content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ev" 
-            date="9/12/2018"
-            />
-          </li>
-          <li>
-            <Post   
-            content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ev" 
-            date="9/12/2028"
-            />
-              
-          </li>
+          {posts.map( post => {
+            const { content, id, date } = post
+            return (
+              <li key={id}>
+                <Post 
+                content={content}
+                date={new Intl.DateTimeFormat('es', {
+                  dateStyle: 'short',
+                  timeStyle: 'short'
+                }).format(new Date(date))}
+                />
+              </li>
+            )
+          })}
         </ul>
         
         { !user && (
@@ -76,4 +82,19 @@ export default function Home() {
       </main>
     </div>
   )
+}
+
+
+
+export async function getStaticProps(){
+
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/posts`)
+  const { posts } = await response.json()
+
+
+  return {
+    props: {
+      posts
+    } 
+  }
 }
