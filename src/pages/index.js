@@ -8,6 +8,8 @@ import Bio from '../components/Bio/Bio'
 import styles from '../styles/Home.module.scss'
 
 export default function Home({ posts: defaultPosts }) {
+  
+  getAllPosts()
 
   const [posts, updatePosts] = useState(defaultPosts)  
 
