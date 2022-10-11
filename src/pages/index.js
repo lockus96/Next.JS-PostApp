@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { getAllPosts, createPosts } from '../lib/posts' 
+import { useState } from 'react'
 import { useAuth } from '../hooks/useAuth'
 import Head from 'next/head'
 import Post from '../components/Post'
@@ -8,19 +9,22 @@ import styles from '../styles/Home.module.scss'
 
 export default function Home({ posts: defaultPosts }) {
 
+  const [posts, updatePosts] = useState(defaultPosts)  
+
+  const postsSorted = posts.sort(function(a,b){
+    return new Date(a.date) - new Date(b.date);
+  });
 
   const { user, logIn, logOut } = useAuth()
 
-  const [posts, updatePosts] = useState(defaultPosts)  
+  async function handleOnSubmit(data, e){
+    e.preventDefault()
 
-  useEffect(()=>{
-    async function run(){
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/posts`)
-      const { posts } = await response.json()
-      updatePosts(posts)
-    }
-    run()
-  }, [])
+    await createPosts(data)
+
+    const posts = await getAllPosts()
+    updatePosts(posts)
+  }
 
   
   return (
@@ -52,7 +56,7 @@ export default function Home({ posts: defaultPosts }) {
         />
 
         <ul className={styles.posts}>
-          {posts.map( post => {
+          {postsSorted.map( post => {
             const { content, id, date } = post
             return (
               <li key={id}>
@@ -74,7 +78,7 @@ export default function Home({ posts: defaultPosts }) {
           </p>
       )}
         { user && (
-            <PostForm/>
+            <PostForm onSubmit={handleOnSubmit} />
         )}
 
 
@@ -87,10 +91,7 @@ export default function Home({ posts: defaultPosts }) {
 
 
 export async function getStaticProps(){
-
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/posts`)
-  const { posts } = await response.json()
-
+  const posts = await getAllPosts()
 
   return {
     props: {
