@@ -7,9 +7,11 @@ import PostForm from '../components/PostForm/PostForm'
 import Bio from '../components/Bio/Bio'
 import styles from '../styles/Home.module.scss'
 
+getAllPosts()
+
+
 export default function Home({ posts: defaultPosts }) {
   
-  getAllPosts()
 
   const [posts, updatePosts] = useState(defaultPosts)  
 
@@ -27,6 +29,8 @@ export default function Home({ posts: defaultPosts }) {
     const posts = await getAllPosts()
     updatePosts(posts)
   }
+
+  console.log(posts)
 
   
   return (
