@@ -11,7 +11,7 @@ const Post = ( { content, date } ) => {
                <ul className={styles.postsMeta}>
                     <li className={styles.postsMetaData}>
                          <FaHeart />
-                         20
+                         25
                     </li>
                     <li className={styles.postsMetaData}>
                          <FaShareAlt/>

@@ -1,4 +1,3 @@
-$color-principal: #0070f3;
 
 .container {
   min-height: 100vh;
@@ -43,4 +42,26 @@ $color-principal: #0070f3;
       margin-bottom: 0;
     }
   }
+}
+
+.buttonLog{
+  background: royalblue;
+ color: white;
+ padding: 0.7em 1em;
+ padding-left: 0.9em;
+ display: flex;
+ align-items: center;
+ border: none;
+ border-radius: 16px;
+ overflow: hidden;
+}
+
+.buttonLog:hover{
+  transition: 0.3s;
+  transform: scale(1.1);
+}
+
+.centerItems{
+  display: flex;
+    justify-content: space-around;
 }
