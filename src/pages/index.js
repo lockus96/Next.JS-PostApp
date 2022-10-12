@@ -82,8 +82,8 @@ export default function Home({ posts: defaultPosts }) {
         )}
 
         {user && (
-          <p>
-            <button  onClick={logOut}>Cerrar Sesión</button>
+          <p className={styles.centerItems}>
+            <button className={styles.buttonLog} onClick={logOut}>Cerrar Sesión</button>
           </p>
         )}
 
