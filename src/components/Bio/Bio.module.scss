@@ -42,3 +42,187 @@
      color: #B25068;
 
 }
+
+@media (max-width: 550px){
+     .bio {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+     }
+     
+     .bioImagen {
+          display: flex;
+
+          margin-left: 3em;
+          img{
+               width: 16em;
+               height: auto;
+               border-radius: 50%;
+          }
+     }
+     
+     .bioContenido {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+     }
+     
+     .bioContenidoNombre {
+          display: flex;
+          margin-top: 0;
+          margin-bottom: 0;
+          font-weight: 900;
+          font-size: 35px;
+          line-height: 65px;
+          color: #E7AB79;
+          flex-direction: column;
+          align-items: center;
+     }
+     
+     .bioContenidoRol {
+          display: flex;
+          margin-top: 0;
+          margin-bottom: 0;
+          font-weight: 900;
+          font-size: 20px;
+          line-height: 47px;
+          color: #B25068;
+          flex-direction: column;
+          align-items: center;
+     }
+     
+     .bioContenidoTag {
+          display: flex;
+          font-weight: 900;
+          line-height: 47px;
+          flex-direction: column;
+          align-items: center;
+          margin: 0;
+          font-weight: bold;
+          font-size: 25px;
+          color: #B25068;
+     
+     }
+     
+}
+
+@media (max-width: 355px){
+     .bio {
+          display: flex;
+          flex-direction: column;
+     }
+     
+     .bioImagen {
+          margin-left: 3em;
+          img{
+               width: 12em;
+               height: auto;
+               border-radius: 50%;
+          }
+     }
+     
+     .bioContenido {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+     }
+     
+     .bioContenidoNombre {
+          display: flex;
+          margin-top: 0;
+          margin-bottom: 0;
+          font-weight: 900;
+          font-size: 25px;
+          line-height: 30px;
+          color: #E7AB79;
+          flex-direction: column;
+          align-items: center;
+     }
+     
+     .bioContenidoRol {
+          display: flex;
+          margin-top: 0;
+          margin-bottom: 0;
+          font-weight: 900;
+          font-size: 15px;
+          line-height: 37px;
+          color: #B25068;
+          flex-direction: column;
+          align-items: center;
+     }
+     
+     .bioContenidoTag {
+          display: flex;
+          font-weight: 900;
+          line-height: 47px;
+          flex-direction: column;
+          align-items: center;
+          margin: 0;
+          font-weight: bold;
+          font-size: 25px;
+          color: #B25068;
+     
+     }
+     
+}
+
+
+@media (max-width: 290px){
+     .bio {
+          display: flex;
+          flex-direction: column;
+     }
+     
+     .bioImagen {
+          margin-left: 3em;
+          img{
+               width: 10em;
+               height: auto;
+               border-radius: 50%;
+          }
+     }
+     
+     .bioContenido {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+     }
+     
+     .bioContenidoNombre {
+          display: flex;
+          margin-top: 0;
+          margin-bottom: 0;
+          font-weight: 900;
+          font-size: 23px;
+          line-height: 30px;
+          color: #E7AB79;
+          flex-direction: column;
+          align-items: center;
+     }
+     
+     .bioContenidoRol {
+          display: flex;
+          margin-top: 0;
+          margin-bottom: 0;
+          font-weight: 900;
+          font-size: 15px;
+          line-height: 37px;
+          color: #B25068;
+          flex-direction: column;
+          align-items: center;
+     }
+     
+     .bioContenidoTag {
+          display: flex;
+          font-weight: 900;
+          line-height: 47px;
+          flex-direction: column;
+          align-items: center;
+          margin: 0;
+          font-weight: bold;
+          font-size: 25px;
+          color: #B25068;
+     
+     }
+     
+}
